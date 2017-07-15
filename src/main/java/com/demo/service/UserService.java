@@ -23,7 +23,7 @@ public interface UserService {
 	 * @param name
 	 * @return
 	 */
-	User login(User user);
+	User Login(User user);
 	
 
 }

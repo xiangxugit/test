@@ -85,7 +85,7 @@
 				background-color: #ddd;
 			}
 		</style>
-
+    
 	</head>
 
 	<body>
@@ -123,51 +123,45 @@
 			</div>
 		</div>
 		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
 		<!-- <script src="js/mui.enterfocus.js"></script>
 		<script src="js/app.js"></script> -->
 		<script>
-			(function($, doc) {
-				
-				var loginButton = doc.getElementById('login');
-				
-				loginButton.addEventListener('tap', function(event) {
-					
-					/* $.ajax('http://server-name/login.php',{
-						data:{
-							username:'username',
-							password:'password'
-						},
-						dataType:'json',//服务器返回json格式数据
-						type:'post',//HTTP请求类型
-						timeout:10000,//超时时间设置为10秒；
-						headers:{'Content-Type':'application/json'},	              
-						success:function(data){
-							//服务器返回响应，根据响应结果，分析是否登录成功；
-							...
-						},
-						error:function(xhr,type,errorThrown){
-							//异常处理；
-							console.log(type);
-						}
-					}); */
-					
-					
-					
-					mui.ajax('http://192.168.123.127:8080/SSMDemo/getAllUser',{
-						
-						dataType:'json',//服务器返回json格式数据
-						type:'get',//HTTP请求类型
-						success:function(data){
-							//获得服务器响应
-							console.log("data"+data);
-						}
-					});
-					
-					
-					
-				});
-				
-			}(mui, document));
+		
+		
+		/* $.ajax({
+			async: false, //表示同步，如果要得到ajax处理完后台数据后的返回值，最好这样设置
+		    type: "get",
+		    url: "http://localhost:8080/SSMDemo/getAllUser/",
+		    dataType: "json",
+		    success: function (result) {
+		    	alert(result);
+		    } 
+		}); */
+		
+		var data = {
+				"name":"admin",
+				"password":"admin"
+			};
+		var test = JSON.stringify(data);
+		alert(data);
+		alert(test);
+		
+		$.ajax({
+			  type: 'POST',
+			  url: "http://localhost:8080/SSMDemo/Login",
+			  data: test,
+				 dataType: 'json',
+				 contentType: "application/json; charset=utf-8",   
+
+			  success :function(data){
+					//服务器返回响应，根据响应结果，分析是否登录成功；
+					console.log("返回来的数据"+data);
+				}
+			 
+			});
+		
+			
 		</script>
 	</body>
 

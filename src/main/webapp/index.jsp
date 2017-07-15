@@ -20,10 +20,10 @@
 $.ajax({
 	async: false, //表示同步，如果要得到ajax处理完后台数据后的返回值，最好这样设置
     type: "get",
-    url: "tiaozhuan?type=3",
+    url: "http://localhost:8080/SSMDemo/getAllUser/",
     dataType: "json",
     success: function (result) {
-    	
+    	alert(result);
     } 
 });
 </script>

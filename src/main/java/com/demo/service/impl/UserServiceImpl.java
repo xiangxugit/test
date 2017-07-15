@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User login(User user) {
+	public User Login(User user) {
 		// TODO Auto-generated method stub
 		return userDAO.Login(user);
 //		return null;

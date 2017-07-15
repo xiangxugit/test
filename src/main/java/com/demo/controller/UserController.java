@@ -10,12 +10,14 @@ import org.codehaus.jackson.JsonParser;
 import org.codehaus.jackson.map.util.JSONPObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.model.User;
 import com.demo.service.UserService;
@@ -30,7 +32,7 @@ public class UserController {
     public ModelAndView index(User user){
     	userService.insertUser(user);
         ModelAndView mav=new ModelAndView();
-        mav.setViewName("index");
+        mav.setViewName("index.jsp");
         mav.addObject("user",user);
         return mav;
     }
@@ -61,16 +63,34 @@ public class UserController {
 
     @RequestMapping(value="Login",method=RequestMethod.POST)
     @ResponseBody
- 	public String Login(@RequestParam(value="username", required=true) String username,
- 			@RequestParam(value="password", required=true) String password
- 			){
+ 	public String Login(@RequestBody String data){
 // 	
-    	User user = new User();
-    	user.setName(username);
-    	user.setPassword(password);
-    	User userget = userService.login(user);
-    	return JSONObject.toJSONString(userget)
-    			;
+    	
+    	System.out.println("data"+data);
+    	
+    	String aaa = JSON.toJSONString(data);
+    	System.out.println("aaa"+aaa);
+    	User user = JSON.parseObject(data, User.class);
+    	
+    	User userget = userService.Login(user);
+    	System.out.println(userget);
+         
+         
+//    	User user = new User();
+//    	user.setName(username);
+//    	user.setPassword(password);
+    	/*String flag;
+    	if(null==userService.login(user)){
+    		flag = "false";
+    	}	
+    	else
+    	{
+    		flag = "true";
+    	}*/
+    	
+//    	return JSONObject.toJSONString(userget)
+    	return "";
+    			
  	}
      
     

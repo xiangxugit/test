@@ -124,28 +124,23 @@
 		</div>
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.6.4/jquery.js"></script>
-		<!-- <script src="js/mui.enterfocus.js"></script>
-		<script src="js/app.js"></script> -->
+	
 		<script>
 		
+		$(document).ready(function(){
+			  $(".btn1").click(function(){
+			    $("p").slideToggle();
+			  });
+			});
 		
-		/* $.ajax({
-			async: false, //表示同步，如果要得到ajax处理完后台数据后的返回值，最好这样设置
-		    type: "get",
-		    url: "http://localhost:8080/SSMDemo/getAllUser/",
-		    dataType: "json",
-		    success: function (result) {
-		    	alert(result);
-		    } 
-		}); */
 		
-		var data = {
+		
+		/* var data = {
 				"name":"admin",
 				"password":"admin"
 			};
 		var test = JSON.stringify(data);
-		alert(data);
-		alert(test);
+		
 		
 		$.ajax({
 			  type: 'POST',
@@ -159,7 +154,7 @@
 					console.log("返回来的数据"+data);
 				}
 			 
-			});
+			}); */
 		
 			
 		</script>

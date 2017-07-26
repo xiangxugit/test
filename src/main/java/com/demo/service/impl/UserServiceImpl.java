@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService{
 
 
 	@Override
-	public List<User> getAllUser() {
+	public List<User> getAllUser(User user) {
 		// TODO Auto-generated method stub
 		return userDAO.getAllUser();
 	}
@@ -41,11 +41,6 @@ public class UserServiceImpl implements UserService{
 
 
 
-	@Override
-	public String getUser() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 

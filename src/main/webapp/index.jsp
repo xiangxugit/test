@@ -23,7 +23,7 @@ $.ajax({
     url: "http://localhost:8080/SSMDemo/getAllUser/",
     dataType: "json",
     success: function (result) {
-    	alert(result);
+    	alert("aaa"+result);
     } 
 });
 </script>

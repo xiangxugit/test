@@ -15,8 +15,8 @@ public interface UserService {
 	 * 功能：返回用户信息
 	 * @return 返回用户信息
 	 */
-    String getUser();
-	List<User> getAllUser();
+    
+	List<User> getAllUser(User user);
 	/**
 	 * 功能:用户登陆
 	 * @param user

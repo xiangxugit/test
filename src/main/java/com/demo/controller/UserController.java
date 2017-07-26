@@ -54,7 +54,8 @@ public class UserController {
     @RequestMapping(value="/getAllUser",method=RequestMethod.GET)
     @ResponseBody
     public String  getAllUser(){
-    	List<User> test = userService.getAllUser();
+    	User user = new User();
+    	List<User> test = userService.getAllUser(user);
     	String backString = JSONObject.toJSONString(test);
         return backString;
     }
@@ -71,10 +72,13 @@ public class UserController {
     	String aaa = JSON.toJSONString(data);
     	System.out.println("aaa"+aaa);
     	User user = JSON.parseObject(data, User.class);
-    	
-    	User userget = userService.Login(user);
-    	System.out.println(userget);
-         
+    	System.out.println("name"+user.getName());
+    	System.out.println("password"+user.getPassword());
+//    	User userget = userService.Login(user);
+//    	System.out.println(userget);
+    	List<User> test = userService.getAllUser(user);
+    	String backString = JSONObject.toJSONString(test);
+        return backString;
          
 //    	User user = new User();
 //    	user.setName(username);
@@ -89,7 +93,7 @@ public class UserController {
     	}*/
     	
 //    	return JSONObject.toJSONString(userget)
-    	return "";
+    	//return "";
     			
  	}
      
